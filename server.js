@@ -139,7 +139,7 @@ app.post('/saveData',function(req,res){
 app.get('/result', function (req, res) {
   console.log('Entering the result page ...');
   let dataToSend;
-  const process = spawn('python3', ['python/predict.py']);  // exec python as the shell commands 
+  const process = spawn('python3', ['./python/testscript.py']);  // exec python as the shell commands
 
   
   // send features to the model
@@ -147,27 +147,16 @@ app.get('/result', function (req, res) {
     console.log('Getting the result from the model ...');
     console.log(data.toString());  // you can check the prediction result at "Logs"
     dataToSend = data.toString();
+    console.log('RESULT: ' + dataToSend)
+    res.send(dataToSend);
   });
   
-  let cmd = "SELECT * FROM userInfo";
-  userDB.all(cmd, function(err, table) {
-    if (err) {
-      console.log("Database reading error", err.message);
-    }
-    else {
-      res.send('Qualified!');
-    }
-  });
 
-  //
-  
-  
-  
   // close and send the data back to browser
-  //process.on('close', (code) => {
-   //console.log(`child process close all stdio with code ${code}`);
-   //res.send(dataToSend)
-  //});
+  process.on('close', (code) => {
+   console.log(`child process close all stdio with code ${code}`);
+
+  });
 });
 
 

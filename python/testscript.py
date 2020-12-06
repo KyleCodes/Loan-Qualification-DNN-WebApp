@@ -1,0 +1,1 @@
+print('This is output from the model prediction')
