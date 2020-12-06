@@ -158,7 +158,8 @@ app.get('/result', function (req, res) {
       res.send('Qualified!');
     }
   });
-  
+
+  //
   
   
   
