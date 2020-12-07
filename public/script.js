@@ -37,12 +37,15 @@ if(isNaN(birthDay)){
             var t2 = d2.getTime();
             var t1 = d1.getTime();
 
-            var day = parseInt(-((t2-t1)/(24*3600*1000)));
+            var day = parseInt((t2-t1)/(24*3600*1000));
             console.log(day);
             return day;
         }
     }
-    numBirthdays=DateDiff.inDays(birthDay,now);
+    var birthdate=DateDiff.inDays(birthDay,now);
+    var sign="-";
+    numBirthdays=sign.concat(birthdate);
+  
     console.log(numBirthdays);
     }
 }
