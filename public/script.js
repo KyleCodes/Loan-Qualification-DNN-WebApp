@@ -69,7 +69,8 @@ function sendInfo(){
       let Phone=document.querySelector("#Phone").value;
       let email=document.querySelector("#email").value;
       let employDay=document.querySelector("#employDay").value;
-
+      
+      let numBirthday=birthdate;
   let data = {
     firstname: firstname,
     lastname: lastname,
@@ -122,7 +123,7 @@ function sendInfo(){
           complete = false;
       }
   
-      if(birthdate<7660)
+      if(numBirthday<7660)
       {
         alert("Please apply only if you are over 21 years old");
         return false;
