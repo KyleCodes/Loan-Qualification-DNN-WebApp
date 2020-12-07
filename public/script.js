@@ -138,3 +138,4 @@ function getTable() {
   xmlhttp.send();
 
 };
+
