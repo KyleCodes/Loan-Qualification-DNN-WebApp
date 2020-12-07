@@ -14,7 +14,7 @@ var numBirthdays = "";
 
 function getBirthday(){
 var now=new Date();
-var input = document.getElementById("datePicker").value;
+var input = document.getElementById("bday").value;
 console.log(input);
 //numBirthdays = "";
     var birthday = new Date(input.replace(/-/g, '\/'));
