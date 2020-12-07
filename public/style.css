@@ -45,7 +45,13 @@ select{
   margin-top:0px;
 }
 .workphone{
-  margin-top:0px;
+  margin-top:10px;
+}
+.phoneNum{
+  margin-top:10px;
+}
+.emailAdd{
+  margin-top:10px;
 }
 input {
   border: 1px solid silver;
