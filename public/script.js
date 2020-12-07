@@ -106,6 +106,7 @@ function sendInfo(){
     window.location = "/result.html";
   }
   xmlhttp.send(JSON.stringify(data));
+  console.log(JSON.stringify(data));
 }
 
 
