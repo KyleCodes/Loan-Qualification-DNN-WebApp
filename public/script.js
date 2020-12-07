@@ -78,7 +78,7 @@ function sendInfo(){
       isFilledOut(data.property, "property");
       isFilledOut(data.childnum, "childnum");
       isFilledOut(data.income, "income");
-      isFilledOut(data.birthday, "birthday");
+      //isFilledOut(data.birthday, "birthday");
       isFilledOut(data.employDay, "employDay");
       isFilledOut(data.workPhone, "workPhone");
       isFilledOut(data.Phone, "Phone");
