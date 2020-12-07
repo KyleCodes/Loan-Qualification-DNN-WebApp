@@ -121,7 +121,13 @@ function sendInfo(){
       if(isNaN(birthDay)){
           complete = false;
       }
-
+  
+      if(birthdate<7660)
+      {
+        alert("Please apply only if you are over 21 years old");
+        return false;
+      }
+  
       if (!complete) {
         alert("Please fill out all required fields");
         return false;
