@@ -42,7 +42,7 @@ if(isNaN(birthDay)){
             return day;
         }
     }
-    var birthdate=DateDiff.inDays(birthDay,now);
+    var birthdate=DateDiff.inDays(birthday,now);
     var sign="-";
     numBirthdays=sign.concat(birthdate);
   
