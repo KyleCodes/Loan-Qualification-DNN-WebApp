@@ -24,23 +24,23 @@ var DateDiff = {
 var numBirthdays=DateDiff.inDays(userbday,now);
 
 function sendInfo(){
-  let firstname = document.getElementById("firstname").value;
-  let lastname = document.getElementById("lastname").value;
-  let gender = document.querySelector("gender").value;
+  let firstname = document.getElementById("firstname").textContent;
+  let lastname = document.getElementById("lastname").textContent;
+  let gender = document.getElementById("gender").value;
   let birthday = numBirthdays;
-  let car = document.querySelector("car").value;
-  let property = document.querySelector("property").value;
-  let childnum = document.querySelector("childnum").value;
-  let income = document.querySelector("income").value;
-  let incomeType = document.querySelector("incomeType").value;
-  let eduLevel = document.querySelector("eduLevel").value;
-  let marital = document.querySelector("marital_status").value;
-  let livingType = document.querySelector("living").value;
-  let months=document.querySelector("months").value;
-  let workPhone=document.querySelector("workPhone").value;
-  let Phone=document.querySelector("Phone").value;
-  let email=document.querySelector("email").value;
-  let employDay=document.querySelector("employDay").value;
+  let car = document.getElementById("car").value;
+  let property = document.getElementById("property").value;
+  let childnum = document.getElementById("childnum").textContent;
+  let income = document.getElementById("income").textContent;
+  let incomeType = document.getElementById("incomeType").value;
+  let eduLevel = document.getElementById("eduLevel").value;
+  let marital = document.getElementById("marital_status").value;
+  let livingType = document.getElementById("living").value;
+  let months=document.getElementById("months").textContent;
+  let workPhone=document.getElementById("workPhone").value;
+  let Phone=document.getElementById("Phone").value;
+  let email=document.getElementById("email").value;
+  let employDay=document.getElementById("employDay").textContent;
   let data = {
     firstname: firstname,
     lastname: lastname,
@@ -73,8 +73,6 @@ function sendInfo(){
         }
       }
 
-      isFilledOut(data.firstname, "firstname");
-      isFilledOut(data.lastname,"lastname");
       isFilledOut(data.gender, "gender");
       isFilledOut(data.car, "car");
       isFilledOut(data.property, "property");
@@ -106,9 +104,8 @@ function sendInfo(){
     window.location = "/result.html";
   }
   xmlhttp.send(JSON.stringify(data));
-
-  console.log(JSON.stringify(data));
 }
+
 
 
 ////////////////////////////////////////////////////////
