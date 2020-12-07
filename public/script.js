@@ -89,7 +89,7 @@ function sendInfo(){
           document.getElementById(id).classList.add("required");
           complete = false;
         } else {
-          document.getElementById(id).classList.remove("required");
+          //document.getElementById(id).classList.remove("required");
         }
       }
 
