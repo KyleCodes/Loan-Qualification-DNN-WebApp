@@ -42,7 +42,7 @@ if(isNaN(birthDay)){
             return day;
         }
     }
-    numBirthdays=DateDiff.inDays(birthday,now);
+    numBirthdays=DateDiff.inDays(now,birthDay);
     console.log(numBirthdays);
     }
 }
