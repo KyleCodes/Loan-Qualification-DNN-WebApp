@@ -24,8 +24,8 @@ var DateDiff = {
 var numBirthdays=DateDiff.inDays(userbday,now);
 
 function sendInfo(){
-  let firstname = document.querySelector("firstname").value;
-  let lastname = document.querySelector("lastname").value;
+  let firstname = document.getElementById("firstname").value;
+  let lastname = document.getElementById("lastname").value;
   let gender = document.querySelector("gender").value;
   let birthday = numBirthdays;
   let car = document.querySelector("car").value;
@@ -106,6 +106,7 @@ function sendInfo(){
     window.location = "/result.html";
   }
   xmlhttp.send(JSON.stringify(data));
+
   console.log(JSON.stringify(data));
 }
 
@@ -135,7 +136,7 @@ function getTable() {
     theDiv.appendChild(content);
   }
 
-  console.log('sending response')
+  console.log('sending response');
   xmlhttp.send();
 
 };
