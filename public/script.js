@@ -15,7 +15,7 @@ let birthDay = "";
 
 function getBirthday(){
 var now=new Date();
-var input = document.getElementById("datePicker").value;
+var input = document.getElementById("bday").value;
 console.log(input);
 //numBirthdays = "";
 var birthday = new Date(input.replace(/-/g, '\/'));
@@ -29,7 +29,8 @@ console.log(birthDay);
 if(isNaN(birthDay)){
     console.log(numBirthdays);
 }else{
-    var userbday=new Date(birthday);
+
+  
     var DateDiff = {
 
         inDays: function(d1, d2) {
