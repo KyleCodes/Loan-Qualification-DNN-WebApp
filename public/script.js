@@ -73,6 +73,8 @@ function sendInfo(){
         }
       }
 
+      isFilledOut(data.firstname, "firstname");
+      isFilledOut(data.lastname,"lastname");
       isFilledOut(data.gender, "gender");
       isFilledOut(data.car, "car");
       isFilledOut(data.property, "property");
@@ -136,3 +138,4 @@ function getTable() {
   xmlhttp.send();
 
 };
+
