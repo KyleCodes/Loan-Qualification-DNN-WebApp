@@ -8,11 +8,26 @@ if(submitBton){
   console.log("attatched submit button listener")
 }
 
+var now=new Date();
+let birthday=document.getElementById("bday");
+
+var DateDiff = {
+ 
+    inDays: function(d1, d2) {
+        var t2 = d2.getTime();
+        var t1 = d1.getTime();
+ 
+        return parseInt((t2-t1)/(24*3600*1000));
+    }
+}
+
+var numBirthdays=DateDiff.inDays(birthday,now);
+
 function sendInfo(){
   let firstname = document.querySelector("#firstname").value;
   let lastname = document.querySelector("#lastname").value;
   let gender = document.querySelector("#gender").value;
-  let birthday = document.querySelector("#bday");
+  let birthday = numBirthdays;
   let car = document.querySelector("#car").value;
   let property = document.querySelector("#property").value;
   let childnum = document.querySelector("#childnum");
@@ -21,6 +36,7 @@ function sendInfo(){
   let eduLevel = document.querySelector("#eduLevel").value;
   let marital = document.querySelector("#marital_status").value;
   let livingType = document.querySelector("#living").value;
+  let months=document.querySelector("#months").value;
   let data = {
     firstname: firstname,
     lastname: lastname,
@@ -33,10 +49,13 @@ function sendInfo(){
     eduLevel: eduLevel,
     incomeType: incomeType,
     livingType:livingType,
-    marital: marital
+    marital: marital,
+    months:months
   }
   console.log(data);
   
+
+
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "/saveData");
 
