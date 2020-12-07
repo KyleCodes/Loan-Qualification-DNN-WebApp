@@ -46,7 +46,8 @@ function createUsrDB()
                         eduLevel TEXT, 
                         incomeType TEXT, 
                         livingType TEXT, 
-                        marital TEXT
+                        marital TEXT,
+                        months TEXT
               )`;
   
   
@@ -105,8 +106,9 @@ app.post('/saveData',function(req,res){
                     eduLevel,
                     incomeType,
                     livingType,
-                    marital)
-              VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`;
+                    marital,
+                    months)
+              VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
   
   userDB.run(
         cmd,
