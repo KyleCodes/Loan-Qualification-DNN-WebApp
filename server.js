@@ -158,7 +158,8 @@ app.get('/result', function (req, res) {
   // close and send the data back to browser
   process.on('close', (code) => {
    console.log(`child process close all stdio with code ${code}`);
-
+   
+  console.log(JSON.stringify(data));
   });
 });
 
