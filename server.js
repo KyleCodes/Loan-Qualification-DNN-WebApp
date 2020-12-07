@@ -92,7 +92,7 @@ app.post('/saveData',function(req,res){
   let incomeType = req.body.incomeType;
   let livingType = req.body.livingType;
   let marital = req.body.marital;
-
+  let months=req.body.months;
   
   const cmd=  `INSERT INTO userInfo(
                     firstname,
@@ -124,6 +124,7 @@ app.post('/saveData',function(req,res){
         incomeType,
         livingType,
         marital,
+        months,
         function(err,val){
           if (err) {
             console.log("DB insert error", err.message);
