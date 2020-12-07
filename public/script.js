@@ -26,7 +26,7 @@ console.log(input);
     var birthDay = birthday.getDate();
     console.log(birthDay);
 
-    var userbday=new Date(birthday);
+    //var userbday=new Date(birthday);
     var DateDiff = {
 
         inDays: function(d1, d2) {
@@ -38,7 +38,7 @@ console.log(input);
             return day;
         }
     }
-    numBirthdays=DateDiff.inDays(userbday,now);
+    numBirthdays=DateDiff.inDays(birthday,now);
     console.log(numBirthdays);
 }
 
