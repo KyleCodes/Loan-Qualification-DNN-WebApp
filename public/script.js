@@ -10,7 +10,7 @@ if(submitBton){
 
 var now=new Date();
 let birthday=document.getElementById("bday");
-
+var userbday=new Date(birthday);
 var DateDiff = {
  
     inDays: function(d1, d2) {
@@ -21,7 +21,7 @@ var DateDiff = {
     }
 }
 
-var numBirthdays=DateDiff.inDays(birthday,now);
+var numBirthdays=DateDiff.inDays(userbday,now);
 
 function sendInfo(){
   let firstname = document.querySelector("#firstname").value;
