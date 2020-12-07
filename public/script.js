@@ -11,6 +11,7 @@ if(submitBton){
 }
 
 var numBirthdays = "";
+var birthdate= "";
 let birthDay = "";
 
 function getBirthday(){
@@ -42,7 +43,7 @@ if(isNaN(birthDay)){
             return day;
         }
     }
-    var birthdate=DateDiff.inDays(birthday,now);
+    birthdate=DateDiff.inDays(birthday,now);
     var sign="-";
     numBirthdays=sign.concat(birthdate);
   
