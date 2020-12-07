@@ -1,3 +1,5 @@
+console.log("js loaded");
+
 ////////////////////////////////////////////////////////
 //            USER INFO SUBMISSON
 ////////////////////////////////////////////////////////
@@ -5,25 +7,43 @@
 const submitBton=document.getElementById("submit");
 if(submitBton){
   submitBton.addEventListener("click", sendInfo);
-  console.log("attatched submit button listener")
+  console.log("attatched submit button listener");
 }
 
+var numBirthdays = "";
+
+function getBirthday(){
 var now=new Date();
-let birthday=document.getElementById("bday");
-var userbday=new Date(birthday);
-var DateDiff = {
+var input = document.getElementById("datePicker").value;
+console.log(input);
+//numBirthdays = "";
+    var birthday = new Date(input.replace(/-/g, '\/'));
+    console.log(birthday);
+    var birthYear = birthday.getFullYear();
+    console.log(birthYear);
+    var birthMonth = birthday.getMonth();
+    console.log(birthMonth);
+    var birthDay = birthday.getDate();
+    console.log(birthDay);
 
-    inDays: function(d1, d2) {
-        var t2 = d2.getTime();
-        var t1 = d1.getTime();
+    var userbday=new Date(birthday);
+    var DateDiff = {
 
-        return parseInt((t2-t1)/(24*3600*1000));
+        inDays: function(d1, d2) {
+            var t2 = d2.getTime();
+            var t1 = d1.getTime();
+
+            var day = parseInt((t2-t1)/(24*3600*1000));
+            console.log(day);
+            return day;
+        }
     }
+    numBirthdays=DateDiff.inDays(userbday,now);
+    console.log(numBirthdays);
 }
-
-var numBirthdays=DateDiff.inDays(userbday,now);
 
 function sendInfo(){
+    getBirthday();
   let firstname = document.getElementById("firstname").textContent;
   let lastname = document.getElementById("lastname").textContent;
   let gender = document.getElementById("gender").value;
@@ -78,7 +98,7 @@ function sendInfo(){
       isFilledOut(data.property, "property");
       isFilledOut(data.childnum, "childnum");
       isFilledOut(data.income, "income");
-      //isFilledOut(data.birthday, "birthday");
+      isFilledOut(data.birthday, "birthday");
       isFilledOut(data.employDay, "employDay");
       isFilledOut(data.workPhone, "workPhone");
       isFilledOut(data.Phone, "Phone");
@@ -107,7 +127,6 @@ function sendInfo(){
 }
 
 
-
 ////////////////////////////////////////////////////////
 //            RESULTS TABLE RETRIEVAL
 ////////////////////////////////////////////////////////
@@ -133,8 +152,7 @@ function getTable() {
     theDiv.appendChild(content);
   }
 
-  console.log('sending response');
+  console.log('sending response')
   xmlhttp.send();
 
 };
-
