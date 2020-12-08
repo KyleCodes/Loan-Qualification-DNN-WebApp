@@ -34,21 +34,7 @@ userDB.get(cmd, function(err,val){
 
 function createUsrDB()
 {
-  const cmd=  `CREATE TABLE userInfo(
-                        firstname TEXT, 
-                        lastname TEXT, 
-                        gender TEXT, 
-                        birthday TEXT, 
-                        property TEXT, 
-                        car TEXT, 
-                        income TEXT, 
-                        childnum TEXT, 
-                        eduLevel TEXT, 
-                        incomeType TEXT, 
-                        livingType TEXT, 
-                        marital TEXT,
-                        months TEXT)`;
-  
+  const cmd=  `CREATE TABLE userInfo(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT)`;
   
   userDB.run(cmd, function(err, val) {
     if (err) {
@@ -93,21 +79,7 @@ app.post('/saveData',function(req,res){
   let marital = req.body.marital;
   let months=req.body.months;
   
-  const cmd=  `INSERT INTO userInfo(
-                    firstname,
-                    lastname,
-                    gender,
-                    birthday,
-                    property,
-                    car,
-                    income,
-                    childnum,
-                    eduLevel,
-                    incomeType,
-                    livingType,
-                    marital,
-                    months)
-              VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const cmd=  `INSERT INTO userInfo(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
   
   userDB.run(
         cmd,
