@@ -1,10 +1,11 @@
-import sys
-from tensorflow import keras
-from keras.models import model_from_json
-from keras.utils.data_utils import get_file
-import contextlib
-
 try:
+
+    import sys
+    from tensorflow import keras
+    from keras.models import model_from_json
+    from keras.utils.data_utils import get_file
+    import contextlib
+
 
     with contextlib.redirect_stdout(None):
         saved_ANN100_JSON = get_file(
@@ -105,5 +106,8 @@ try:
     result = loaded_model.predict_classes(info)
     sys.stdout.write(result)
 
-except:
-    sys.stderr.write('Script crashed')
+except Exception as e:
+    sys.stderr.write(str(e))
+
+# except:
+#     traceback.print_exc()

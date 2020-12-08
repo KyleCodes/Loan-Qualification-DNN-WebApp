@@ -141,7 +141,7 @@ app.get('/result', function (req, res) {
        const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
 
        process.stderr.on('data', function(data) {
-         console.log(data)
+         console.trace(data.toString('utf8'))
          res.send("Python Script Crashed");
        } )
 
@@ -152,30 +152,7 @@ app.get('/result', function (req, res) {
          res.send(dataToSend);
        });
 
-     }} 
- 
-  // console.log('gender:', gender);
-  // console.log('car:', car);
-  // console.log('Entering the result page ...');
-  // let dataToSend;
-  // const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
-  //
-  //
-  // send features to the model
-  // process.stdout.on('data', function (data) {
-  //   console.log('Getting the result from the model ...');
-  //   dataToSend = data.toString();
-  //   console.log('RESULT: ' + dataToSend)
-  //   res.send(dataToSend);
-  // });
-  
-
-  // close and send the data back to browser
-  //process.on('close', (code) => {
-  // console.log(`child process close all stdio with code ${code}`);
-   
-  //res.send(dataToSend);
-  //});
+     }}
 });
 
 
