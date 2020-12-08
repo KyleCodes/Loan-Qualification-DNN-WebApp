@@ -1,24 +1,14 @@
 import sys
 from tensorflow import keras
 from keras.models import model_from_json
-from keras.utils.data_utils import get_file
-
-saved_model_json = get_file(
-            'AN100JSON',
-            'https://drive.google.com/uc?export=download&id=1E2CZ4Ri9rxtsU4QhSVif25ylKlrkjDiE')
-
-saved_model_h5 = get_file(
-            'AN100H5',
-            'https://drive.google.com/uc?export=download&id=1mhKAc9pTAWLQQn8E8HlYo_aOYCIcCo6t')
-
 
 # load json and create model
-json_file = open(saved_model_json, 'r')
+json_file = open('./model100.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 loaded_model = model_from_json(loaded_model_json)
 # load weights into new model
-loaded_model.load_weights(saved_model_h5)
+loaded_model.load_weights('./model100.h5')
 
 # helper func to normalize inputs
 def normalize(x, xmin, xmax):
