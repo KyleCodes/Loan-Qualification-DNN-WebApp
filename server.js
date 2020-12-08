@@ -119,10 +119,10 @@ app.get('/result', function (req, res) {
      if (err) { console.log("error: ",err.message); }
      else { 
        console.log( "got data"); 
-       input = rowData;
+       inputs = rowData;
      }} 
 
-  console.log('gender:', input.gender);
+  console.log('gender:', inputs.gender);
   console.log('Entering the result page ...');
   let dataToSend;
   const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
@@ -131,7 +131,6 @@ app.get('/result', function (req, res) {
   // send features to the model
   process.stdout.on('data', function (data) {
     console.log('Getting the result from the model ...');
-    console.log(data.toString());  // you can check the prediction result at "Logs"
     dataToSend = data.toString();
     console.log('RESULT: ' + dataToSend)
     res.send(dataToSend);
