@@ -20,7 +20,7 @@ const userDB=new sql.Database("userData.db");
 
 let cmd = " SELECT * FROM sqlite_master WHERE type='table' AND name='userInfo_ext' ";
 userDB.get(cmd, function(err,val){
-  console.log(err,val);
+  // console.log(err,val);
   if(val==undefined){
     console.log("No database file - Creating a new one");
     createUsrDB();
@@ -34,7 +34,8 @@ userDB.get(cmd, function(err,val){
 
 function createUsrDB()
 {
-  const cmd=  `CREATE TABLE userInfo_ext(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT)`;
+  //                                     firstname,      lastname,      gender,      birthday,      property,      car,      income,      childnum,      eduLevel,      incomeType,      livingType,      marital,      months,      workPhone,      Phone,      email
+  const cmd=  `CREATE TABLE userInfo_ext(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT, workPhone TEXT, Phone TEXT, email TEXT)`;
   
   userDB.run(cmd, function(err, val) {
     if (err) {
@@ -126,25 +127,46 @@ app.get('/result', function (req, res) {
   function dataCallback( err, rowData ) {    
      if (err) { console.log("error: ",err.message); }
      else { 
-       console.log( "got data"); 
+       console.log( "got data");
+       console.log(rowData)
        gender = rowData.gender;
        car = rowData.car;
+
+       console.log('gender:', gender);
+       console.log('car:', car);
+       console.log('Entering the result page ...');
+
+       let dataToSend;
+       const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
+
+       process.stderr.on('data', function(data) {
+         print(data)
+         res.send(data);
+       } )
+
+       process.stdout.on('data', function (data) {
+         console.log('Getting the result from the model ...');
+         dataToSend = data.toString();
+         console.log('RESULT: ' + dataToSend)
+         res.send(dataToSend);
+       });
+
      }} 
  
-  console.log('gender:', gender);
-  console.log('car:', car);
-  console.log('Entering the result page ...');
-  let dataToSend;
-  const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
-
-  
+  // console.log('gender:', gender);
+  // console.log('car:', car);
+  // console.log('Entering the result page ...');
+  // let dataToSend;
+  // const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
+  //
+  //
   // send features to the model
-  process.stdout.on('data', function (data) {
-    console.log('Getting the result from the model ...');
-    dataToSend = data.toString();
-    console.log('RESULT: ' + dataToSend)
-    res.send(dataToSend);
-  });
+  // process.stdout.on('data', function (data) {
+  //   console.log('Getting the result from the model ...');
+  //   dataToSend = data.toString();
+  //   console.log('RESULT: ' + dataToSend)
+  //   res.send(dataToSend);
+  // });
   
 
   // close and send the data back to browser
