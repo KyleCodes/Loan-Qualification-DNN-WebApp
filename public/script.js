@@ -30,8 +30,8 @@ function sendInfo(){
   let birthday = numBirthdays;
   let car = document.querySelector("#car").value;
   let property = document.querySelector("#property").value;
-  let childnum = document.querySelector("#childnum");
-  let income = document.querySelector("#income");
+  let childnum = document.querySelector("#childnum").value;
+  let income = document.querySelector("#income").value;
   let incomeType = document.querySelector("#incomeType").value;
   let eduLevel = document.querySelector("#eduLevel").value;
   let marital = document.querySelector("#marital_status").value;
