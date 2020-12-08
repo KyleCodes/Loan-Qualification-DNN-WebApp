@@ -9,58 +9,6 @@ const fs = require('fs');
 const sql=require("sqlite3").verbose();
 const { spawn } = require('child_process'); 
 
-
-////////////////////////////////////////////////////////
-//            DATABASE SETUP
-////////////////////////////////////////////////////////
-
-
-const userDB=new sql.Database("userData.db");
-
-
-let cmd = " SELECT * FROM sqlite_master WHERE type='table' AND name='userInfo' ";
-userDB.get(cmd, function(err,val){
-  console.log(err,val);
-  if(val==undefined){
-    console.log("No database file - Creating a new one");
-    createUsrDB();
-  }
-  else
-  {
-    console.log("Database Found!");
-    console.log(val)
-  }
-})
-
-function createUsrDB()
-{
-  const cmd=  `CREATE TABLE userInfo(
-                        firstname TEXT, 
-                        lastname TEXT, 
-                        gender TEXT, 
-                        birthday TEXT, 
-                        property TEXT, 
-                        car TEXT, 
-                        income TEXT, 
-                        childnum TEXT, 
-                        eduLevel TEXT, 
-                        incomeType TEXT, 
-                        livingType TEXT, 
-                        marital TEXT,
-                        months TEXT
-              )`;
-  
-  
-  userDB.run(cmd, function(err, val) {
-    if (err) {
-      console.log("Database creation failure", err.message);
-    } else {
-      console.log("Created database");
-    }
-  });
-}
-
-
 ////////////////////////////////////////////////////////
 //              ROUTING SETUP
 ////////////////////////////////////////////////////////
@@ -77,7 +25,9 @@ app.get("/", (request, response) => {
 
 app.use(bodyParser.json());
 
-app.post('/saveData',function(req,res){
+
+// This part should handle the process when user click "submit application"
+app.get('/result', function (req, res) {
   console.log(req.body)
   
   let firstname = req.body.firstname;
@@ -93,56 +43,12 @@ app.post('/saveData',function(req,res){
   let livingType = req.body.livingType;
   let marital = req.body.marital;
   let months=req.body.months;
-  
-  const cmd=  `INSERT INTO userInfo(
-                    firstname,
-                    lastname,
-                    gender,
-                    birthday,
-                    property,
-                    car,
-                    income,
-                    childnum,
-                    eduLevel,
-                    incomeType,
-                    livingType,
-                    marital,
-                    months)
-              VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
-  
-  userDB.run(
-        cmd,
-        firstname,
-        lastname,
-        gender,
-        birthday,
-        property,
-        car,
-        income,
-        childnum,
-        eduLevel,
-        incomeType,
-        livingType,
-        marital,
-        months,
-        function(err,val){
-          if (err) {
-            console.log("DB insert error", err.message);
-          } else {
-            console.log("sucess");
-          }
-        }
-  );
-  // res.send(this.lastID);
-  res.send("User Data Received")
-})
+  let has_phone=req.body.months;
 
 
-// This part should handle the process when user click "submit application"
-app.get('/result', function (req, res) {
-  console.log('Entering the result page ...');
   let dataToSend;
-  const process = spawn('python3', ['./python/testscript.py']);  // exec python as the shell commands
+  const process = spawn('python', ['./python/classification.py', gender, birthday, property, car, income, childnum,
+  eduLevel, incomeType, livingType, marital, months]);  // exec python as the shell commands
 
   
   // send features to the model
