@@ -120,10 +120,10 @@ app.get('/result', function (req, res) {
        console.log( "got data"); 
        let gender = rowData.gender;
        let car = rowData.car;
+       console.log('gender:', gender);
+       console.log('car:', car);
      }} 
-
-  console.log('gender:', gender);
-  console.log('car:', car);
+ 
   console.log('Entering the result page ...');
   let dataToSend;
   const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
