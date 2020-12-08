@@ -7,9 +7,9 @@ if(submitBton){
   submitBton.addEventListener("click", sendInfo);
   console.log("attatched submit button listener")
 }
-
+var numBirthdays="";
 var now=new Date();
-let birthday=document.getElementById("bday");
+let birthday=document.getElementById("bday").value;
 var userbday=new Date(birthday);
 var DateDiff = {
  
@@ -21,7 +21,7 @@ var DateDiff = {
     }
 }
 
-var numBirthdays=DateDiff.inDays(userbday,now);
+  numBirthdays=DateDiff.inDays(userbday,now);
 
 function sendInfo(){
   let firstname = document.querySelector("#firstname").value;
@@ -30,8 +30,8 @@ function sendInfo(){
   let birthday = numBirthdays;
   let car = document.querySelector("#car").value;
   let property = document.querySelector("#property").value;
-  let childnum = document.querySelector("#childnum");
-  let income = document.querySelector("#income");
+  let childnum = document.querySelector("#childnum").value;
+  let income = document.querySelector("#income").value;
   let incomeType = document.querySelector("#incomeType").value;
   let eduLevel = document.querySelector("#eduLevel").value;
   let marital = document.querySelector("#marital_status").value;
