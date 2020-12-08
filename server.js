@@ -141,8 +141,8 @@ app.get('/result', function (req, res) {
        const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
 
        process.stderr.on('data', function(data) {
-         print(data)
-         res.send(data);
+         console.log(data)
+         res.send("Python Script Crashed");
        } )
 
        process.stdout.on('data', function (data) {

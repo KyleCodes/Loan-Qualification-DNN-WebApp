@@ -40,7 +40,7 @@ function sendInfo(){
   let workPhone=document.querySelector("#workPhone").value;
   let Phone=document.querySelector("#Phone").value;
   let email=document.querySelector("#email").value;
-  let jobType=docuemtn.querySelector("#jobType").value;
+  let jobType=document.querySelector("#jobType").value;
   let data = {
     firstname: firstname,
     lastname: lastname,
