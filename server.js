@@ -111,19 +111,18 @@ app.post('/saveData',function(req,res){
 
 // This part should handle the process when user click "submit application"
 app.get('/result', function (req, res) {
-  let cmd = "SELECT * FROM userInfo_ext ORDER BY rowid DESC LIMIT 1;"
+  let inputs;
+  let cmd = "SELECT * FROM userInfo_ext ORDER BY rowid DESC LIMIT 1";
   userDB.get(cmd, dataCallback);
     
   function dataCallback( err, rowData ) {    
      if (err) { console.log("error: ",err.message); }
      else { 
-       console.log( "got: ", rowData); 
+       console.log( "got data"); 
+       input = rowData;
      }} 
 
-
-
-  console.log('Datacall:', dataCallback);
-  console.log('gender:', dataCallback.gender);
+  console.log('gender:', input.gender);
   console.log('Entering the result page ...');
   let dataToSend;
   const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
@@ -135,6 +134,7 @@ app.get('/result', function (req, res) {
     console.log(data.toString());  // you can check the prediction result at "Logs"
     dataToSend = data.toString();
     console.log('RESULT: ' + dataToSend)
+    res.send(dataToSend);
   });
   
 
