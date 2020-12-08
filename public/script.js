@@ -7,9 +7,9 @@ if(submitBton){
   submitBton.addEventListener("click", sendInfo);
   console.log("attatched submit button listener")
 }
-
+var numBirthdays="";
 var now=new Date();
-let birthday=document.getElementById("bday");
+let birthday=document.getElementById("bday").value;
 var userbday=new Date(birthday);
 var DateDiff = {
  
@@ -21,7 +21,7 @@ var DateDiff = {
     }
 }
 
-var numBirthdays=DateDiff.inDays(userbday,now);
+  numBirthdays=DateDiff.inDays(userbday,now);
 
 function sendInfo(){
   let firstname = document.querySelector("#firstname").value;
