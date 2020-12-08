@@ -82,9 +82,9 @@ app.post('/saveData',function(req,res){
   let workPhone=req.body.workPhone;
   let Phone=req.body.Phone;
   let email=req.body.email;
+  let jobType=req.body.jobType;
   
-  
-  const cmd=  `INSERT INTO userInfo_ext(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months,workPhone,Phone,email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const cmd=  `INSERT INTO userInfo_ext(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months,workPhone,Phone,email,jobType) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
   
   userDB.run(
         cmd,
@@ -104,6 +104,7 @@ app.post('/saveData',function(req,res){
         workPhone,
         Phone,
         email,
+        jobType,
         function(err,val){
           if (err) {
             console.log("DB insert error", err.message);

@@ -37,6 +37,10 @@ function sendInfo(){
   let marital = document.querySelector("#marital_status").value;
   let livingType = document.querySelector("#living").value;
   let months=document.querySelector("#months").value;
+  let workPhone=document.querySelector("#workPhone").value;
+  let Phone=document.querySelector("#Phone").value;
+  let email=document.querySelector("#email").value;
+  let jobType=docuemtn.querySelector("#jobType").value;
   let data = {
     firstname: firstname,
     lastname: lastname,
@@ -50,7 +54,11 @@ function sendInfo(){
     incomeType: incomeType,
     livingType:livingType,
     marital: marital,
-    months:months
+    months:months,
+    workPhone:workPhone,
+    Phone:Phone,
+    email:email,
+    jobType:jobType
   }
   console.log(data);
   
