@@ -1,5 +1,4 @@
 import sys
-import pandas as pd
 from tensorflow import keras
 from keras.models import model_from_json
 from keras.utils.data_utils import get_file
