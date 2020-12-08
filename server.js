@@ -141,7 +141,7 @@ app.post('/saveData',function(req,res){
 // This part should handle the process when user click "submit application"
 app.get('/result', function (req, res) {
   let cmd = "SELECT * FROM userInfo ORDER BY rowid DESC LIMIT 1;"
-  postcardDB.get(cmd, dataCallback);
+  userDB.get(cmd, dataCallback);
     
   function dataCallback( err, rowData ) {    
      if (err) { console.log("error: ",err.message); }
@@ -152,7 +152,7 @@ app.get('/result', function (req, res) {
 
   console.log('Entering the result page ...');
   let dataToSend;
-  const process = spawn('python3', ['./python/classification.py']);  // exec python as the shell commands
+  const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
 
   
   // send features to the model
