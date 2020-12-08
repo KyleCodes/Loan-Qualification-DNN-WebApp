@@ -111,6 +111,8 @@ app.post('/saveData',function(req,res){
 
 // This part should handle the process when user click "submit application"
 app.get('/result', function (req, res) {
+  let gender;
+  let car;
   let cmd = "SELECT * FROM userInfo_ext ORDER BY rowid DESC LIMIT 1";
   userDB.get(cmd, dataCallback);
     
@@ -118,12 +120,12 @@ app.get('/result', function (req, res) {
      if (err) { console.log("error: ",err.message); }
      else { 
        console.log( "got data"); 
-       let gender = rowData.gender;
-       let car = rowData.car;
-       console.log('gender:', gender);
-       console.log('car:', car);
+       gender = rowData.gender;
+       car = rowData.car;
      }} 
  
+  console.log('gender:', gender);
+  console.log('car:', car);
   console.log('Entering the result page ...');
   let dataToSend;
   const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
