@@ -25,17 +25,17 @@ def normalize(x, xmin, xmax):
     return (x - xmin) / (xmax - xmin)
 
 # init the features
-gender = 1
-has_car = 1
-has_house = 1
-num_children = float(0)
-income_amount = float(400000)
-birthday = float(-9000)
+gender = sys.argv[1]
+has_car = sys.argv[4]
+has_house = sys.argv[3]
+num_children = float(sys.argv[6])
+income_amount = float(sys.argv[5])
+birthday = float(sys.argv[2])
 days_emplyed = float(3650)
 is_workphone = 1
 is_phone = 1
 is_email = 1
-months = float(99)
+months = float(sys.argv[11])
 
 # one hot encoding vars
 income_commercial_ass = 0
