@@ -7,23 +7,27 @@ if(submitBton){
   submitBton.addEventListener("click", sendInfo);
   console.log("attatched submit button listener")
 }
+
 var numBirthdays="";
-var now=new Date();
-let birthday=document.getElementById("bday").value;
-var userbday=new Date(birthday);
-var DateDiff = {
- 
-    inDays: function(d1, d2) {
-        var t2 = d2.getTime();
-        var t1 = d1.getTime();
- 
-        return parseInt((t2-t1)/(24*3600*1000));
-    }
+
+function getBirthday(){
+  var now=new Date();
+  let birthday=document.getElementById("bday").value;
+  var userbday=new Date(birthday);
+  var DateDiff = {
+
+      inDays: function(d1, d2) {
+          var t2 = d2.getTime();
+          var t1 = d1.getTime();
+          return parseInt((t2-t1)/(24*3600*1000));
+      }
+  }
+
+    numBirthdays=DateDiff.inDays(userbday,now);
 }
 
-  numBirthdays=DateDiff.inDays(userbday,now);
-
 function sendInfo(){
+  getBirthday();
   let firstname = document.querySelector("#firstname").value;
   let lastname = document.querySelector("#lastname").value;
   let gender = document.querySelector("#gender").value;
