@@ -18,7 +18,7 @@ const { spawn } = require('child_process');
 const userDB=new sql.Database("userData.db");
 
 
-let cmd = " SELECT * FROM sqlite_master WHERE type='table' AND name='userInfo' ";
+let cmd = " SELECT * FROM sqlite_master WHERE type='table' AND name='userInfo_ext' ";
 userDB.get(cmd, function(err,val){
   console.log(err,val);
   if(val==undefined){
@@ -34,7 +34,7 @@ userDB.get(cmd, function(err,val){
 
 function createUsrDB()
 {
-  const cmd=  `CREATE TABLE userInfo(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT)`;
+  const cmd=  `CREATE TABLE userInfo_ext(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT)`;
   
   userDB.run(cmd, function(err, val) {
     if (err) {
@@ -79,7 +79,7 @@ app.post('/saveData',function(req,res){
   let marital = req.body.marital;
   let months=req.body.months;
   
-  const cmd=  `INSERT INTO userInfo(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const cmd=  `INSERT INTO userInfo_ext(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
   
   userDB.run(
         cmd,
@@ -111,7 +111,7 @@ app.post('/saveData',function(req,res){
 
 // This part should handle the process when user click "submit application"
 app.get('/result', function (req, res) {
-  let cmd = "SELECT * FROM userInfo ORDER BY rowid DESC LIMIT 1;"
+  let cmd = "SELECT * FROM userInfo_ext ORDER BY rowid DESC LIMIT 1;"
   userDB.get(cmd, dataCallback);
     
   function dataCallback( err, rowData ) {    
