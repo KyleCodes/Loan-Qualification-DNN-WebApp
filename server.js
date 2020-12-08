@@ -130,8 +130,8 @@ app.get('/result', function (req, res) {
      else { 
        console.log( "got data");
        console.log(rowData)
-       gender = rowData.gender;
-       car = rowData.car;
+       let gender = rowData.gender;
+       let car = rowData.car;
 
        console.log('gender:', gender);
        console.log('car:', car);
@@ -141,7 +141,7 @@ app.get('/result', function (req, res) {
        const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
 
        process.stderr.on('data', function(data) {
-         console.trace(data.toString('utf8'))
+         console.log(data.toString('utf8'))
          res.send("Python Script Crashed");
        } )
 
