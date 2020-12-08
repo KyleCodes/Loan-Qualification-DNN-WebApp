@@ -136,44 +136,18 @@ function sendInfo(){
       }
 
   let xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("POST", "/saveData");
+  xmlhttp.open("GET", "/result");
 
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
   xmlhttp.onloadend = function(e) {
     console.log(xmlhttp.responseText);
     window.location = "/result.html";
-  }
-  xmlhttp.send(JSON.stringify(data));
-}
-
-
-////////////////////////////////////////////////////////
-//            RESULTS TABLE RETRIEVAL
-////////////////////////////////////////////////////////
-
-const resultsBton = document.getElementById("load_table");
-if(resultsBton){
-  resultsBton.addEventListener("click", getTable);
-  console.log("attatched results button listener")
-}
-
-function getTable() {
-
-  let xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("GET", "/result");
-
-  xmlhttp.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
-
-  xmlhttp.onloadend = function(e) {
-    console.log(xmlhttp.responseText);
 
     let theDiv = document.getElementById("appli_record_tabl");
     let content = document.createTextNode(xmlhttp.responseText);
     theDiv.appendChild(content);
+
   }
-
-  console.log('sending response')
-  xmlhttp.send();
-
-};
+  xmlhttp.send(JSON.stringify(data));
+}
