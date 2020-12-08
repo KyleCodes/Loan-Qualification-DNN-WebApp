@@ -1,14 +1,23 @@
 import sys
 from tensorflow import keras
 from keras.models import model_from_json
+from keras.utils.data_utils import get_file
+
+saved_ANN100_JSON = get_file(
+            'ANN100_JSON',
+            'https://drive.google.com/uc?export=download&id=1E2CZ4Ri9rxtsU4QhSVif25ylKlrkjDiE')
+
+saved_ANN100_H5 = get_file(
+            'ANN100_H5',
+            'https://drive.google.com/uc?export=download&id=1mhKAc9pTAWLQQn8E8HlYo_aOYCIcCo6t')
 
 # load json and create model
-json_file = open('./model100.json', 'r')
+json_file = open(saved_ANN100_JSON, 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 loaded_model = model_from_json(loaded_model_json)
 # load weights into new model
-loaded_model.load_weights('./model100.h5')
+loaded_model.load_weights(saved_ANN100_H5)
 
 # helper func to normalize inputs
 def normalize(x, xmin, xmax):
@@ -18,9 +27,9 @@ def normalize(x, xmin, xmax):
 gender = 1
 has_car = 1
 has_house = 1
-num_children = 0
-income_amount = float(80000)
-birthday = float(-6000)
+num_children = float(6)
+income_amount = float(5)
+birthday = float(-6999)
 days_emplyed = float(3650)
 is_workphone = 1
 is_phone = 1
