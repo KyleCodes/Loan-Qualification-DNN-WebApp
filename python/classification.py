@@ -2,14 +2,17 @@ import sys
 from tensorflow import keras
 from keras.models import model_from_json
 from keras.utils.data_utils import get_file
+import contextlib
 
-saved_ANN100_JSON = get_file(
+with contextlib.redirect_stdout(None):
+    saved_ANN100_JSON = get_file(
             'ANN100_JSON',
             'https://drive.google.com/uc?export=download&id=1E2CZ4Ri9rxtsU4QhSVif25ylKlrkjDiE')
 
-saved_ANN100_H5 = get_file(
+    saved_ANN100_H5 = get_file(
             'ANN100_H5',
             'https://drive.google.com/uc?export=download&id=1mhKAc9pTAWLQQn8E8HlYo_aOYCIcCo6t')
+
 
 # load json and create model
 json_file = open(saved_ANN100_JSON, 'r')
