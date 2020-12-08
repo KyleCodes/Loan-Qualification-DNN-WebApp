@@ -78,8 +78,12 @@ app.post('/saveData',function(req,res){
   let livingType = req.body.livingType;
   let marital = req.body.marital;
   let months=req.body.months;
+  let workPhone=req.body.workPhone;
+  let Phone=req.body.Phone;
+  let email=req.body.email;
   
-  const cmd=  `INSERT INTO userInfo_ext(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  
+  const cmd=  `INSERT INTO userInfo_ext(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months,workPhone,Phone,email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
   
   userDB.run(
         cmd,
@@ -96,6 +100,9 @@ app.post('/saveData',function(req,res){
         livingType,
         marital,
         months,
+        workPhone,
+        Phone,
+        email,
         function(err,val){
           if (err) {
             console.log("DB insert error", err.message);
