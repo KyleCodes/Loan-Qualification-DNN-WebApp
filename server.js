@@ -1,3 +1,4 @@
+
 ////////////////////////////////////////////////////////
 //            DEPENDENCIES
 ////////////////////////////////////////////////////////
@@ -54,18 +55,15 @@ app.get('/result', function (req, res) {
   // send features to the model
   process.stdout.on('data', function (data) {
     console.log('Getting the result from the model ...');
-    console.log(data.toString());  // you can check the prediction result at "Logs"
     dataToSend = data.toString();
     console.log('RESULT: ' + dataToSend)
-    res.send(dataToSend);
   });
   
 
   // close and send the data back to browser
   process.on('close', (code) => {
    console.log(`child process close all stdio with code ${code}`);
-   
-  console.log(JSON.stringify(data));
+   res.send(dataToSend);
   });
 });
 
@@ -87,4 +85,3 @@ app.all("*", function (request, response) {
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
-
