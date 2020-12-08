@@ -48,8 +48,7 @@ app.get('/result', function (req, res) {
 
 
   let dataToSend;
-  const process = spawn('python', ['./python/classification.py', gender, birthday, property, car, income, childnum,
-  eduLevel, incomeType, livingType, marital, months]);  // exec python as the shell commands
+  const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
 
   
   // send features to the model
