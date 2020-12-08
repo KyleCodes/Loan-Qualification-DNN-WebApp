@@ -141,9 +141,9 @@ function sendInfo(){
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
   xmlhttp.onloadend = function(e) {
-    console.log(xmlhttp.responseText);
     window.location = "/result.html";
 
+    console.log(xmlhttp.responseText);
     let theDiv = document.getElementById("appli_record_tabl");
     let content = document.createTextNode(xmlhttp.responseText);
     theDiv.appendChild(content);
