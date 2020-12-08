@@ -34,8 +34,8 @@ userDB.get(cmd, function(err,val){
 
 function createUsrDB()
 {
-  //                                     firstname,      lastname,      gender,      birthday,      property,      car,      income,      childnum,      eduLevel,      incomeType,      livingType,      marital,      months,      workPhone,      Phone,      email
-  const cmd=  `CREATE TABLE userInfo_ext(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT, workPhone TEXT, Phone TEXT, email TEXT)`;
+  //                                     firstname,      lastname,      gender,      birthday,      property,      car,      income,      childnum,      eduLevel,      incomeType,      livingType,      marital,      months,      workPhone,      Phone,      email       jobType
+  const cmd=  `CREATE TABLE userInfo_ext(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT, workPhone TEXT, Phone TEXT, email TEXT, jobType TEXT)`;
   
   userDB.run(cmd, function(err, val) {
     if (err) {
