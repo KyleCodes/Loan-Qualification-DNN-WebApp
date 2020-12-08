@@ -47,8 +47,7 @@ function createUsrDB()
                         incomeType TEXT, 
                         livingType TEXT, 
                         marital TEXT,
-                        months TEXT
-              )`;
+                        months TEXT)`;
   
   
   userDB.run(cmd, function(err, val) {
