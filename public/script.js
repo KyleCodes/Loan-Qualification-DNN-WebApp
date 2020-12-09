@@ -24,6 +24,7 @@ function getBirthday(){
   }
 
     numBirthdays=DateDiff.inDays(userbday,now);
+    numBirthdays=numBirthdays*(-1);
 }
 
 function sendInfo(){
@@ -103,14 +104,16 @@ function getTable() {
     
     let theDiv = document.getElementById("appli_record_tabl");
     let content = " ";
-    let value = xmlhttp.responseText;
+    let value = parseInt(xmlhttp.responseText);
     
-    if (value === "0"){
+    if (value === 0){
         content =  document.createTextNode("QUALIFIED");
         theDiv.className = "qualified! ";
+        console.log("qualified")
     }else{
         content =  document.createTextNode("NOT QUALIFIED");
         theDiv.className = "unqualified! ";
+        console.log("unqualified")
     }
     
     theDiv.appendChild(content);     
