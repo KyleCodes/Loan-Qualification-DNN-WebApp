@@ -138,11 +138,11 @@ app.get('/result', function (req, res) {
        console.log('Entering the result page ...');
 
        let dataToSend;
-       const process = spawn('python', ['./python/classification.py']);  // exec python as the shell commands
+       const process = spawn('python3', ['./python/classification.py']);  // exec python as the shell commands
 
        process.stderr.on('data', function(data) {
          console.log(data.toString('utf8'))
-         res.send("Python Script Crashed");
+         // res.send("Python Script Crashed");
        } )
 
        process.stdout.on('data', function (data) {
