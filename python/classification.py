@@ -107,7 +107,7 @@ info = [[gender, has_car, has_house, num_children, income_amount, birthday, days
          job_privateservice, job_realty, job_sales, job_secratearies, job_secuirty, job_waiter]]
 
 
-result = loaded_model.predict_classes(info)
+result = loaded_model.predict_classes(info)[0][0]
 # sys.stdout.write(str(result))
 print(result)
 
