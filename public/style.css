@@ -94,7 +94,25 @@ footer {
 }
 
 #appli_record_tabl {
-  background-color: forestgreen;
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+  color: forestgreen;
+  padding: 50px;
+  font-size: 200%;
+}
+
+.qualified {
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+  color: forestgreen;
+  padding: 50px;
+  font-size: 200%;
+}
+
+.unqualified {
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+  color: darkred;
   padding: 50px;
   font-size: 200%;
 }
