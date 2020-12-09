@@ -1,15 +1,12 @@
 import sys
 from tensorflow import keras
 
-loaded_model = keras.models.load_model('./CNN100_model')
+loaded_model = keras.models.load_model('./python/CNN100_model')
 
 
 # helper func to normalize inputs
 def normalize(x, xmin, xmax):
     return (x - xmin) / (xmax - xmin)
-
-print(sys.argv[1])
-print(int(sys.argv[1]))
 
 # init the features
 gender = int(sys.argv[1])
@@ -88,6 +85,3 @@ info = [[gender, has_car, has_house, num_children, income_amount, birthday, days
 result = loaded_model.predict_classes(info)[0][0]
 # sys.stdout.write(str(result))
 print(result)
-
-# except Exception as e:
-#     sys.stderr.write(str(e))
