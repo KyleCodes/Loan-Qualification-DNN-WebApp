@@ -107,12 +107,12 @@ function getTable() {
     let value = parseInt(xmlhttp.responseText);
     
     if (value === 0){
-        content =  document.createTextNode("QUALIFIED");
-        theDiv.className = "qualified! ";
+        content =  document.createTextNode("QUALIFIED! ");
+        theDiv.className = "qualified";
         console.log("qualified")
     }else{
-        content =  document.createTextNode("NOT QUALIFIED");
-        theDiv.className = "unqualified! ";
+        content =  document.createTextNode("NOT QUALIFIED! ");
+        theDiv.className = "unqualified";
         console.log("unqualified")
     }
     
