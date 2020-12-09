@@ -1,7 +1,7 @@
 import sys
 from tensorflow import keras
 
-loaded_model = keras.models.load_model('python/CNN100_model')
+loaded_model = keras.models.load_model('./CNN100_model')
 
 
 # helper func to normalize inputs
@@ -10,16 +10,16 @@ def normalize(x, xmin, xmax):
 
 # init the features
 gender = sys.argv[1]
-has_car = sys.argv[4]
-has_house = sys.argv[3]
-num_children = float(sys.argv[6])
-income_amount = float(5)
+has_car = 1
+has_house = 1
+num_children = float(0)
+income_amount = float(50000)
 birthday = float(sys.argv[2])
 days_emplyed = float(3650)
-is_workphone = sys.argv[12]
-is_phone = sys.argv[13]
-is_email = sys.argv[14]
-months = float(sys.argv[11])
+is_workphone = 1
+is_phone = 1
+is_email = 1
+months = float(2)
 
 # one hot encoding vars
 income_commercial_ass = 0
