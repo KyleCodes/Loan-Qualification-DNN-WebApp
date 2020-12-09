@@ -8,8 +8,11 @@ loaded_model = keras.models.load_model('./CNN100_model')
 def normalize(x, xmin, xmax):
     return (x - xmin) / (xmax - xmin)
 
+print(sys.argv[1])
+print(int(sys.argv[1]))
+
 # init the features
-gender = sys.argv[1]
+gender = int(sys.argv[1])
 has_car = 1
 has_house = 1
 num_children = float(0)
