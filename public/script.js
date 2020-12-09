@@ -107,10 +107,10 @@ function getTable() {
     
     if (value === "0"){
         content =  document.createTextNode("QUALIFIED");
-        theDiv.className = "qualified";
+        theDiv.className = "qualified! ";
     }else{
         content =  document.createTextNode("NOT QUALIFIED");
-        theDiv.className = "unqualified";
+        theDiv.className = "unqualified! ";
     }
     
     theDiv.appendChild(content);     
