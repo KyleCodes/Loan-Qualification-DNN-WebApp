@@ -102,7 +102,17 @@ function getTable() {
     console.log(xmlhttp.responseText);
     
     let theDiv = document.getElementById("appli_record_tabl");
-    let content = document.createTextNode(xmlhttp.responseText);
+    let content = " ";
+    let value = xmlhttp.responseText;
+    
+    if (value === "0"){
+        content =  document.createTextNode("QUALIFIED");
+        theDiv.className = "qualified";
+    }else{
+        content =  document.createTextNode("NOT QUALIFIED");
+        theDiv.className = "unqualified";
+    }
+    
     theDiv.appendChild(content);     
   }
   
