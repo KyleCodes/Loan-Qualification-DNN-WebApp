@@ -1,4 +1,4 @@
-tensorflow2
+tensorflow-cpu
 keras
 pandas
 numpy
