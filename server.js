@@ -129,12 +129,12 @@ app.get('/result', function (req, res) {
      if (err) { console.log("error: ",err.message); }
      else { 
        console.log( "got data");
-       console.log(rowData)
-       // let gender = rowData.gender;
-       // let car = rowData.car;
+       //console.log(rowData)
+       let gender = rowData.gender;
+       let car = rowData.car;
 
-       // console.log('gender:', gender);
-       // console.log('car:', car);
+       console.log('gender:', gender);
+       console.log('car:', car);
        console.log('Entering the result page ...');
 
        let dataToSend;
