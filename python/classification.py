@@ -25,7 +25,7 @@ from keras.utils.data_utils import get_file
 # # load weights into new model
 # loaded_model.load_weights(saved_ANN100_H5)
 
-model = keras.models.load_model('../CNN100_model/saved_model.pb')
+loaded_model = keras.models.load_model('../CNN100_model/saved_model.pb')
 
 
 
