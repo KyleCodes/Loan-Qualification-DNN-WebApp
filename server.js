@@ -34,8 +34,8 @@ userDB.get(cmd, function(err,val){
 
 function createUsrDB()
 {
-  //                                     firstname,      lastname,      gender,      birthday,      property,      car,      income,      childnum,      eduLevel,      incomeType,      livingType,      marital,      months,      workPhone,      Phone,      email       jobType
-  const cmd=  `CREATE TABLE userInfo_ext(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT, workPhone TEXT, Phone TEXT, email TEXT, jobType TEXT)`;
+  //                                     firstname,      lastname,      gender,      birthday,      property,      car,      income,      childnum,      eduLevel,      incomeType,      livingType,      marital,      months,      workPhone,      Phone,      email       jobType        employDay
+  const cmd=  `CREATE TABLE userInfo_ext(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT, workPhone TEXT, Phone TEXT, email TEXT, jobType TEXT, employDay TEXT)`;
   
   userDB.run(cmd, function(err, val) {
     if (err) {
@@ -83,8 +83,9 @@ app.post('/saveData',function(req,res){
   let Phone=req.body.Phone;
   let email=req.body.email;
   let jobType=req.body.jobType;
+  let employDay=req.body.employDay;
   
-  const cmd=  `INSERT INTO userInfo_ext(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months,workPhone,Phone,email,jobType) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const cmd=  `INSERT INTO userInfo_ext(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months,workPhone,Phone,email,jobType,employDay) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
   
   userDB.run(
         cmd,
@@ -105,6 +106,7 @@ app.post('/saveData',function(req,res){
         Phone,
         email,
         jobType,
+        employDay,
         function(err,val){
           if (err) {
             console.log("DB insert error", err.message);
