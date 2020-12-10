@@ -46,6 +46,7 @@ function sendInfo(){
   let Phone=document.querySelector("#Phone").value;
   let email=document.querySelector("#email").value;
   let jobType=document.querySelector("#jobType").value;
+  let employDay=document.querySelector("#employDay").value;
   let data = {
     firstname: firstname,
     lastname: lastname,
@@ -63,7 +64,8 @@ function sendInfo(){
     workPhone:workPhone,
     Phone:Phone,
     email:email,
-    jobType:jobType
+    jobType:jobType,
+    employDay:employDay
   }
   console.log(data);
   
