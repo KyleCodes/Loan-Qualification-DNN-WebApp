@@ -139,7 +139,7 @@ app.get('/result', function (req, res) {
        let dataToSend;
        const process = spawn('python3', ['./python/classification.py', parseInt(rowData.gender, 10), parseInt(rowData.birthday, 10), parseInt(rowData.property, 10), parseInt(rowData.car, 10),
        parseInt(rowData.income, 10), parseInt(rowData.childnum, 10), rowData.eduLevel, rowData.incomeType, rowData.livingType, rowData.marital, 
-       parseInt(rowData.months, 10), parseInt(rowData.workPhone, 10), parseInt(rowData.Phone, 10), parseInt(rowData.email, 10), rowData.jobType]);  // exec python as the shell commands
+       parseInt(rowData.months, 10), parseInt(rowData.workPhone, 10), parseInt(rowData.Phone, 10), parseInt(rowData.email, 10), rowData.jobType， parseInt(rowData.employDay, 10)]);  // exec python as the shell commands
 
        process.stderr.on('data', function(data) {
          console.log(data.toString('utf8'))
