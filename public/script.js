@@ -68,6 +68,46 @@ function sendInfo(){
     employDay:employDay
   }
   console.log(data);
+  let complete = true;
+
+  function isFilledOut(content, id) {
+    if (content == "") {
+      document.getElementById(id).classList.add("required");
+      complete = false;
+    } else {
+      document.getElementById(id).classList.remove("required");
+    }
+  }
+
+   function sendInfo(){
+        isFilledOut(data.firstname, "firstname");
+        isFilledOut(data.lastname, "lastname");
+        isFilledOut(data.gender, "gender");
+        isFilledOut(data.property, "property");
+        isFilledOut(data.childnum, "childnum");
+        isFilledOut(data.income, "income");
+        isFilledOut(data.car, "car");
+        isFilledOut(data.eduLevel, "eduLevel");
+        isFilledOut(data.incomeType, "incomeType");
+        isFilledOut(data.employDay, "employDay");
+        isFilledOut(data.workPhone, "workPhone");
+        isFilledOut(data.Phone, "Phone");
+        isFilledOut(data.email, "email");
+        isFilledOut(data.jobType, "jobType");
+        isFilledOut(data.living, "livingType");
+        isFilledOut(data.marital, "marital");
+        isFilledOut(data.months, "months");
+    }
+
+        if(isNaN(birthday)){
+            complete = false;
+        }
+
+        if (!complete) {
+          alert("Please fill out all required fields");
+          return false;
+        }
+
 
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "/saveData");
