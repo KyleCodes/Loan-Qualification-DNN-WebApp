@@ -18,7 +18,7 @@ const { spawn } = require('child_process');
 const userDB=new sql.Database("userData.db");
 
 
-let cmd = " SELECT * FROM sqlite_master WHERE type='table' AND name='userInfo_ext' ";
+let cmd = " SELECT * FROM sqlite_master WHERE type='table' AND name='userInfo_final' ";
 userDB.get(cmd, function(err,val){
   // console.log(err,val);
   if(val==undefined){
@@ -35,7 +35,7 @@ userDB.get(cmd, function(err,val){
 function createUsrDB()
 {
   //                                     firstname,      lastname,      gender,      birthday,      property,      car,      income,      childnum,      eduLevel,      incomeType,      livingType,      marital,      months,      workPhone,      Phone,      email       jobType        employDay
-  const cmd=  `CREATE TABLE userInfo_ext(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT, workPhone TEXT, Phone TEXT, email TEXT, jobType TEXT, employDay TEXT)`;
+  const cmd=  `CREATE TABLE userInfo_final(firstname TEXT, lastname TEXT, gender TEXT, birthday TEXT, property TEXT, car TEXT, income TEXT, childnum TEXT, eduLevel TEXT, incomeType TEXT, livingType TEXT, marital TEXT, months TEXT, workPhone TEXT, Phone TEXT, email TEXT, jobType TEXT, employDay TEXT)`;
   
   userDB.run(cmd, function(err, val) {
     if (err) {
@@ -85,7 +85,7 @@ app.post('/saveData',function(req,res){
   let jobType=req.body.jobType;
   let employDay=req.body.employDay;
   
-  const cmd=  `INSERT INTO userInfo_ext(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months,workPhone,Phone,email,jobType,employDay) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const cmd=  `INSERT INTO userInfo_final(firstname,lastname,gender,birthday,property,car,income,childnum,eduLevel,incomeType,livingType,marital,months,workPhone,Phone,email,jobType,employDay) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
   
   userDB.run(
         cmd,
@@ -123,7 +123,7 @@ app.post('/saveData',function(req,res){
 // This part should handle the process when user click "submit application"
 app.get('/result', function (req, res) {
 
-  let cmd = "SELECT * FROM userInfo_ext ORDER BY rowid DESC LIMIT 1";
+  let cmd = "SELECT * FROM userInfo_final ORDER BY rowid DESC LIMIT 1";
   userDB.get(cmd, dataCallback);
     
   function dataCallback( err, rowData ) {    
