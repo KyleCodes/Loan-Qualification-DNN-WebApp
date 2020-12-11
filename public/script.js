@@ -69,8 +69,6 @@ function sendInfo(){
   }
   console.log(data);
 
-  document.getElementById("load_table").className = "shown";
-
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "/saveData");
 
