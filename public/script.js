@@ -68,8 +68,8 @@ function sendInfo(){
     employDay:employDay
   }
   console.log(data);
-  
 
+  document.getElementById("pred_result").className = "shown";
 
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "/saveData");
@@ -95,33 +95,33 @@ if(resultsBton){
 }
 
 function getTable() {
-  
+
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("GET", "/result");
 
   xmlhttp.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
+  let theDiv = document.querySelector("#appli_record_tabl");
 
   xmlhttp.onloadend = function(e) {
     console.log(xmlhttp.responseText);
-    
-    let theDiv = document.getElementById("appli_record_tabl");
+
     let content = " ";
     let value = parseInt(xmlhttp.responseText);
-    
+
     if (value === 0){
-        content =  document.createTextNode("QUALIFIED! ");
+        theDiv.textContent = "QUALIFIED! ";
         theDiv.className = "qualified";
         console.log("qualified")
     }else{
-        content =  document.createTextNode("NOT QUALIFIED! ");
+        theDiv.textContent = "NOT QUALIFIED! ";
         theDiv.className = "unqualified";
         console.log("unqualified")
     }
-    
-    theDiv.appendChild(content);     
+    document.getElementById("pred_result").className = "hidden";
   }
-  
+
+  theDiv.textContent ="loading...";
   console.log('sending response')
   xmlhttp.send();
-    
+
 };
