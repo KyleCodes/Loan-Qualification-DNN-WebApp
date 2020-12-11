@@ -34,39 +34,42 @@
 
     <div class="page1">
       <div id="UserForm">
+        <h4 class="centered"> * : required field</h4>
         <div class="centered">
           <form action="/saveData" method="POST">
             
             <!-- Colum on the left -->
             <div class="firstCol">
-              <h3>First Name:</h3>
+              <h3>First Name*:</h3>
               <input
                 type="text"
                 id="firstname"
                 name="firstname"
                 placeholder="Your first name.."
               />
-              <h3>Gender:</h3>
+              <h3>Gender*:</h3>
               <select id="gender" name="gender" class="dropDown">
                 <option value="">Select One</option>
                 <option value="1">Male</option>
                 <option value="0">Female</option>
               </select>
 
-              <h3 class="propHeader">Is there a property:</h3>
+              <h3 class="propHeader">Is there a property*:</h3>
               <select id="property" name="property" class="dropDown">
                 <option value="">Select One</option>
                 <option value="1">True</option>
                 <option value="0">False</option>
               </select>
-              <h3>Annual income:</h3>
+              
+              <h3>Annual income*:</h3>
               <input
                 type="text"
                 id="income"
                 name="income"
                 placeholder="Your income.."
               />
-              <h3>Choose your education level:</h3>
+              
+              <h3>Choose your education level*:</h3>
               <select id="eduLevel" name="eduLevel" class="dropDown">
                 <option value="">Select One</option>
                 <option value="Higher education">Higher education</option>
@@ -79,7 +82,7 @@
                 <option value="Other">Other</option>
               </select>
               
-              <h3>Choose your way of living:</h3>
+              <h3>Choose your way of living*:</h3>
               <select id="living" name="living" class="dropDown">
                 <option value="">Select One</option>
                 <option value="Rented apartment">Rented apartment</option>
@@ -91,28 +94,28 @@
                 <option value="Other">Other</option>
               </select>
 
-              <h3>Do you have a work phone:</h3>
+              <h3>Do you have a work phone*:</h3>
               <select id="workPhone" name="workPhone" class="dropDown">
                 <option value="">Select One</option>
                 <option value="1">Yes</option>
                 <option value="0">no</option>
               </select>
 
-              <h3>Do you have a phone:</h3>
+              <h3>Do you have a phone*:</h3>
               <select id="Phone" name="Phone" class="dropDown">
                 <option value="">Select One</option>
                 <option value="1">Yes</option>
                 <option value="0">no</option>
               </select>
 
-              <h3>Do you have a email:</h3>
+              <h3>Do you have a email*:</h3>
               <select id="email" name="email" class="dropDown">
                 <option value="">Select One</option>
                 <option value="1">Yes</option>
                 <option value="0">no</option>
               </select>
 
-              <h3>Amount of days employed:</h3>
+              <h3>Amount of days employed*:</h3>
               <input
                       type="text"
                       id="employDay"
@@ -120,7 +123,7 @@
                       placeholder="day #.."
               />
               
-              <h3>Job Type:</h3>
+              <h3>Job Type*:</h3>
               <select id="jobType" name="jobType" class="dropDown">
                 <option value="">Select One</option>
                 <option value="accountants">Accountants</option>
@@ -148,7 +151,7 @@
 
  <!-- Colum on the right -->
             <div class="secondCol">
-              <h3>Last Name:</h3>
+              <h3>Last Name*:</h3>
               <input
                 type="text"
                 id="lastname"
@@ -157,17 +160,17 @@
                 style="width: 280px"
               />
 
-              <h3>Birthday:</h3>
+              <h3>Birthday*:</h3>
               <input type="date" name="bday" id="bday" style="width: 280px" />
 
-              <h3>Do you have a car:</h3>
+              <h3>Do you have a car*:</h3>
               <select id="car" name="car" class="dropDown">
                 <option value="">Select One</option>
                 <option value="1">True</option>
                 <option value="0">False</option>
               </select>
 
-              <h3>Number of children:</h3>
+              <h3>Number of children*:</h3>
               <input
                 type="text"
                 id="childnum"
@@ -176,7 +179,7 @@
                 style="width: 280px"
               />
 
-              <h3>Choose your income category:</h3>
+              <h3>Choose your income category*:</h3>
               <select id="incomeType" name="incomeType" class="dropDown">
                 <option value="">Select One</option>
                 <option value="Working">Working</option>
@@ -189,7 +192,7 @@
                 <option value="Other">Other</option>
               </select>
 
-              <h3>Choose your marital status:</h3>
+              <h3>Choose your marital status*:</h3>
               <select id="marital_status" name="marital_status" class="dropDown">
                 <option value="">Select One</option>
                 <option value="Civil marriage">Civil marriage</option>
@@ -229,7 +232,7 @@
                       style="width: 280px"
               />
 
-              <h3 class="monthAcc">How long you have account with us?</h3>
+              <h3 class="monthAcc">How long you have account with us?*</h3>
               <input
               		  type="text"
               		  id="months" 
