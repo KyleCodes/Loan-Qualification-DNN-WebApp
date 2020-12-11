@@ -139,7 +139,7 @@ elif sys.argv[15] == "IT":
 elif sys.argv[15] == "lab":
   job_lab = 1
 elif sys.argv[15] == "lowskill":
-  job_lowskill = 0
+  job_lowskill = 1
 elif sys.argv[15] == "manager":
   job_manager = 1
 elif sys.argv[15] == "medic":
