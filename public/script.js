@@ -69,7 +69,7 @@ function sendInfo(){
   }
   console.log(data);
 
-  document.getElementById("pred_result").className = "shown";
+  document.getElementById("load_table").className = "shown";
 
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "/saveData");
@@ -117,7 +117,7 @@ function getTable() {
         theDiv.className = "unqualified";
         console.log("unqualified")
     }
-    document.getElementById("pred_result").className = "hidden";
+    document.getElementById("load_table").className = "hidden";
   }
 
   theDiv.textContent ="loading...";
