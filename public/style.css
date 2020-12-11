@@ -115,3 +115,13 @@ footer {
   padding: 50px;
   font-size: 200%;
 }
+
+.hidden {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.shown {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
